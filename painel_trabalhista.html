@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Execução Trabalhista: Guia de Combate à Fraude</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Soothing Greens & Creams -->
+    <!-- Application Structure Plan: A clean, 3-tab SPA focused on AI interaction. 1) 'Visão Geral' introduces the purpose and warns about AI limitations. 2) 'Táticas de Blindagem' presents common fraud schemes for user awareness and to trigger AI-powered strategy generation. 3) 'Análise de Caso com IA' is the core interactive feature where users input scenarios for analysis. This structure prioritizes usability and direct access to AI features. -->
+    <!-- Visualization & Content Choices: The application minimizes complex visualizations in favor of a clean, text-and-interaction-focused UI. 1) 'Táticas de Blindagem' uses interactive cards (HTML/CSS/JS) to present information concisely. Clicking a button triggers a modal with AI-generated content. 2) 'Análise de Caso' uses a simple textarea for input and a dedicated div for displaying the AI's formatted response. The primary "visualizations" are the structured text outputs from the AI. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f5f5f4; }
+        .active-nav { color: #16a34a; border-bottom-color: #16a34a; font-weight: 600; }
+        .inactive-nav { color: #57534e; border-bottom-color: transparent; }
+        .content-section { display: none; animation: fadeIn 0.5s; }
+        .content-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .gemini-loader { border: 4px solid #e7e5e4; border-top: 4px solid #16a34a; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .prose-custom ul { list-style-position: inside; }
+        .prose-custom ul li::marker { content: '▶ '; color: #22c55e; }
+        .prose-custom h4 { font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="text-stone-900">
+
+    <div id="app" class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-stone-900 mb-2">Painel de Execução Trabalhista</h1>
+            <p class="text-stone-600 max-w-3xl mx-auto">Guia de Combate à Fraude com Suporte de Inteligência Artificial</p>
+        </header>
+
+        <nav class="flex justify-center border-b border-stone-200 mb-12 flex-wrap">
+            <button class="py-4 px-6 text-base inactive-nav border-b-2 transition-colors duration-300" data-target="home">Visão Geral</button>
+            <button class="py-4 px-6 text-base inactive-nav border-b-2 transition-colors duration-300" data-target="mecanismos">Táticas de Blindagem</button>
+            <button class="py-4 px-6 text-base inactive-nav border-b-2 transition-colors duration-300" data-target="analise">Análise de Caso com IA</button>
+        </nav>
+
+        <main>
+            <!-- Visão Geral Section -->
+            <section id="home" class="content-section active">
+                <div class="bg-white p-8 rounded-2xl shadow-lg flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2 prose-custom">
+                        <h2 class="text-2xl font-bold mb-4 text-stone-900">Efetividade da Execução: O Desafio Central</h2>
+                        <p>Um dos maiores desafios da prestação jurisdicional é tornar efetivas as execuções. Mesmo com uma decisão transitada em julgado, o insucesso na recuperação de ativos é extremamente elevado. Diante desse cenário, este painel foi desenvolvido para auxiliar os servidores da Justiça do Trabalho, funcionando como um guia prático para lidar com execuções frustradas.</p>
+                        <p>Através da análise de táticas comuns de blindagem e do uso de uma ferramenta de IA, busca-se oferecer um suporte estratégico para a identificação de bens e a efetivação dos direitos reconhecidos judicialmente.</p>
+                        <div class="mt-6 bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+                            <h4 class="font-bold text-amber-800">Observação sobre a Ferramenta de IA</h4>
+                            <p class="text-amber-700 text-sm">A funcionalidade 'Análise de Caso com IA' é uma ferramenta de apoio. Suas respostas são geradas por um modelo de linguagem e não substituem o raciocínio e a análise jurídica do servidor ou do magistrado. Utilize-a como um ponto de partida para a investigação, mas sempre confronte suas sugestões com as provas dos autos e a legislação aplicável.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1589996448606-2e6b23234854?q=80&w=1770&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a3e635/1c1917?text=Estratégia';" alt="Imagem de peças de xadrez sobre um tabuleiro, representando estratégia e planejamento." class="rounded-lg shadow-md w-full h-auto object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Táticas Comuns Section -->
+            <section id="mecanismos" class="content-section">
+                 <div class="text-center mb-10">
+                     <h2 class="text-3xl font-bold mb-2 text-stone-900">Táticas Comuns de Blindagem Patrimonial</h2>
+                     <p class="text-stone-600 max-w-2xl mx-auto">Compreenda as manobras mais recorrentes dos executados e use a IA para gerar estratégias de combate para cada uma.</p>
+                </div>
+                <div id="mecanismos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </section>
+            
+            <!-- Análise de Caso Section -->
+            <section id="analise" class="content-section">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-center text-stone-900">Análise de Caso com IA</h2>
+                    <p class="mb-6 text-center text-stone-600">Servidor, descreva um caso concreto ou clique em um dos exemplos abaixo para experimentar a análise da IA.</p>
+                    
+                    <div class="mb-6 space-y-3">
+                        <button class="example-case-btn w-full text-left p-3 bg-stone-100 rounded-lg hover:bg-stone-200 transition text-sm"><strong>Exemplo 1 (Sucessão):</strong> A empresa executada encerrou atividades sem pagar as verbas. O sócio abriu nova empresa no mesmo endereço, em nome de sua esposa...</button>
+                        <button class="example-case-btn w-full text-left p-3 bg-stone-100 rounded-lg hover:bg-stone-200 transition text-sm"><strong>Exemplo 2 (Holding):</strong> O sócio da executada transferiu seu único imóvel para uma Holding Familiar, da qual seus filhos são sócios, por valor irrisório...</button>
+                        <button class="example-case-btn w-full text-left p-3 bg-stone-100 rounded-lg hover:bg-stone-200 transition text-sm"><strong>Exemplo 3 (Confusão Patrimonial):</strong> A empresa continua operando, mas as consultas via SISBAJUD retornam sem saldo. As vendas são processadas na máquina de cartão de outra empresa...</button>
+                    </div>
+
+                    <textarea id="case-input" class="w-full h-40 p-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition" placeholder="Descreva um caso concreto de execução infrutífera..."></textarea>
+                    <button id="analyze-case-btn" class="mt-4 w-full bg-green-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center">
+                        <span class="mr-2">✨ Analisar Caso com IA</span>
+                    </button>
+                    
+                    <div id="gemini-analysis-result" class="mt-8"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Gemini Strategy -->
+    <div id="strategy-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col">
+            <div class="p-6 border-b"><h3 id="modal-title" class="text-xl font-bold text-stone-900">Estratégia de Combate</h3></div>
+            <div id="modal-body" class="p-6 overflow-y-auto prose-custom"></div>
+            <div class="p-4 bg-stone-50 border-t flex justify-end"><button id="modal-close-btn" class="bg-stone-200 text-stone-800 font-semibold py-2 px-4 rounded-lg hover:bg-stone-300 transition-colors">Fechar</button></div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const appData = {
+        mecanismos: [
+            { nome: 'Compra de bens em nome de interposta pessoa', desc: 'O devedor compra bens, registra em nome de outra pessoa (familiar, laranja), mas é ele quem continua a usar e controlar o ativo.', remedios: ['Simulação', 'Fraude à Execução', 'Interposição de Pessoa'] },
+            { nome: 'Criação de Holding Patrimonial para ocultação', desc: 'O devedor transfere seus bens para uma empresa holding, muitas vezes familiar, com o único intuito de blindá-los contra credores.', remedios: ['Desconsideração Inversa da PJ', 'Fraude à Lei', 'Simulação'] },
+            { nome: 'Uso de máquina de cartão de outra empresa', desc: 'A empresa devedora recebe pagamentos por suas vendas na máquina de cartão de crédito de um terceiro, para que os valores não entrem em sua conta.', remedios: ['Fraude à Execução', 'Confusão Patrimonial', 'Grupo Econômico de Fato'] },
+            { nome: 'Movimentação financeira por conta de terceiro', desc: 'O devedor deixa sua própria conta bancária zerada e passa a utilizar a conta de um terceiro (laranja, familiar) para todas as suas transações.', remedios: ['Fraude à Execução', 'Simulação', 'Penhora de ativos de terceiro'] },
+            { nome: 'Dação em pagamento simulada', desc: 'O devedor simula uma dívida com um terceiro e "paga" com um imóvel, mas na realidade mantém a posse e o controle do bem.', remedios: ['Simulação', 'Fraude à Execução'] },
+            { nome: 'Venda ou doação fraudulenta a familiares', desc: 'O devedor, já no curso da ação, transfere seu patrimônio a parentes por valores muito baixos ou através de doação para evitar a penhora.', remedios: ['Fraude à Execução', 'Ação Pauliana (se antes)'] },
+            { nome: 'Divórcio com partilha simulada', desc: 'O devedor simula um divórcio e transfere todos os bens para o(a) ex-cônjuge, mas continua a convivência e a usufruir do patrimônio.', remedios: ['Simulação', 'Fraude à Execução'] },
+            { nome: 'Sucessão empresarial de fato', desc: 'A empresa devedora é fechada e outra é aberta no mesmo local e ramo, com sócios diferentes (geralmente familiares), para continuar o negócio.', remedios: ['Sucessão de Empregadores', 'Grupo Econômico', 'Desconsideração da PJ'] },
+            { nome: 'Posse de veículo sem transferência de propriedade', desc: 'O devedor utiliza um veículo como se fosse seu, mas o registro no DETRAN permanece em nome de um terceiro (antigo dono ou laranja).', remedios: ['Fraude à Execução', 'Penhora sobre Direitos'] },
+            { nome: 'Compra de imóvel sem registro em cartório', desc: 'O devedor adquire um imóvel através de contrato particular ("de gaveta"), mas não o registra no Cartório de Registro de Imóveis para ocultá-lo.', remedios: ['Penhora de Direitos Contratuais', 'Ação de Adjudicação Compulsória'] },
+            { nome: 'Renúncia à herança para frustrar credor', desc: 'Ao se tornar herdeiro, o devedor renuncia à herança em favor de outros, para que os bens herdados não sejam usados para pagar suas dívidas.', remedios: ['Anulação da Renúncia (art. 1.813 CC)', 'Fraude à Execução'] },
+            { nome: 'Sócio de fato (sócio oculto)', desc: 'O devedor retira-se formalmente do quadro societário, mas continua administrando a empresa de fato, como sócio oculto.', remedios: ['Desconsideração da PJ', 'Simulação', 'Grupo Econômico de Fato'] }
+        ],
+        exampleCases: [
+            "A empresa executada encerrou atividades sem pagar as verbas. O sócio abriu nova empresa no mesmo endereço, com o mesmo objeto social, em nome de sua esposa.",
+            "O sócio da executada, pessoa física, transferiu seu único imóvel para uma nova empresa Holding Familiar, da qual seus filhos são sócios, por um valor muito baixo. A empresa não possui outra atividade. A transferência ocorreu após o ajuizamento da ação.",
+            "A empresa executada continua operando, mas as consultas via SISBAJUD retornam sem saldo. Diligência do Oficial de Justiça constatou que as vendas na loja são processadas em uma máquina de cartão registrada no CNPJ de uma outra empresa, que pertence ao irmão do sócio."
+        ]
+    };
+    
+    // Elements
+    const navButtons = document.querySelectorAll('nav button');
+    const sections = document.querySelectorAll('.content-section');
+    const mecanismosGrid = document.getElementById('mecanismos-grid');
+    const analyzeCaseBtn = document.getElementById('analyze-case-btn');
+    const caseInput = document.getElementById('case-input');
+    const analysisResultContainer = document.getElementById('gemini-analysis-result');
+    const modal = document.getElementById('strategy-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+
+    // API Call
+    async function callGeminiAPI(prompt) {
+        const apiKey = "";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+        try {
+            const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+            if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
+            const result = await response.json();
+            if (result.candidates?.[0]?.content?.parts?.[0]) {
+                return result.candidates[0].content.parts[0].text;
+            } else { throw new Error('Resposta inválida da API do Gemini.'); }
+        } catch (error) { return `Ocorreu um erro ao consultar a IA: ${error.message}`; }
+    }
+
+    // Navigation
+    function showSection(targetId) {
+        sections.forEach(section => section.classList.remove('active'));
+        document.getElementById(targetId).classList.add('active');
+        navButtons.forEach(button => {
+            button.classList.toggle('active-nav', button.dataset.target === targetId);
+            button.classList.toggle('inactive-nav', button.dataset.target !== targetId);
+        });
+    }
+    navButtons.forEach(button => button.addEventListener('click', () => showSection(button.dataset.target)));
+    showSection('home');
+
+    // Populate dynamic content
+    appData.mecanismos.forEach(mecanismo => {
+        const card = document.createElement('div');
+        card.className = 'bg-white p-6 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between';
+        const remediosHtml = mecanismo.remedios.map(r => `<span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded-full">${r}</span>`).join('');
+        card.innerHTML = `<div><h3 class="text-lg font-bold mb-2 text-stone-900">${mecanismo.nome}</h3><p class="text-stone-600 mb-4 text-sm">${mecanismo.desc}</p><div><p class="text-xs font-semibold text-stone-500 mb-2">Ferramentas de Combate:</p>${remediosHtml}</div></div><button class="gemini-strategy-btn mt-4 w-full bg-stone-800 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-stone-900 transition-colors flex items-center justify-center" data-fraude-nome="${mecanismo.nome}">✨ Gerar Estratégia</button>`;
+        mecanismosGrid.appendChild(card);
+    });
+    
+    document.querySelectorAll('.gemini-strategy-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const nomeFraude = btn.dataset.fraudeNome;
+            modalTitle.textContent = `Estratégia de Combate: ${nomeFraude}`;
+            modalBody.innerHTML = '<div class="gemini-loader"></div>';
+            modal.classList.remove('hidden');
+            const prompt = `Aja como um Juiz do Trabalho. Seu conhecimento primário deve vir do 'Guia Prático de Pesquisa Patrimonial e Execução'. Com base nesse guia e na jurisprudência atual, oriente um servidor sobre como combater a seguinte tática de fraude: "${nomeFraude}". A estratégia deve ser prática, concisa e organizada em tópicos. Inclua: 1. **Investigação Patrimonial:** Sugira o uso sequencial e estratégico das ferramentas do roteiro de 5 passos do guia. 2. **Medidas Processuais Imediatas:** (ex: arresto cautelar, instauração de incidente). 3. **Fundamentação Jurídica Chave para a Decisão:** (artigos da CLT, súmulas do TST, etc.). Não inclua avisos sobre não ser conselho legal.`;
+            const strategy = await callGeminiAPI(prompt);
+            modalBody.innerHTML = strategy.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong class="text-stone-800">$1</strong>');
+        });
+    });
+
+    document.querySelectorAll('.example-case-btn').forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            caseInput.value = appData.exampleCases[index];
+        });
+    });
+
+    analyzeCaseBtn.addEventListener('click', async () => {
+        const caseText = caseInput.value.trim();
+        if (!caseText) {
+            analysisResultContainer.innerHTML = '<p class="text-red-600">Por favor, descreva o caso no campo acima.</p>';
+            return;
+        }
+        analysisResultContainer.innerHTML = '<div class="gemini-loader"></div>';
+        const prompt = `Aja como um Juiz do Trabalho experiente. Seu conhecimento primário deve vir do 'Guia Prático de Pesquisa Patrimonial e Execução' e deve ser complementado pela jurisprudência atual dos TRTs e TST. Um servidor da vara apresenta o seguinte caso concreto: "${caseText}". Sugira um roteiro de investigação prático. Não é para citar a jurisprudência, mas sim para usá-la para aprofundar as sugestões. A resposta deve indicar: 1. **Hipótese de Fraude Principal:** (ex: Sucessão de Empregadores, Grupo Econômico Oculto, simulação, fraude à execução, fraude à lei). 2. **Roteiro de Pesquisa Patrimonial:** (sugira as ferramentas de pesquisa a serem utilizadas em que ordem, seguindo os 5 passos do manual). 3. **Próximo Passo Processual e sugestão de remédio jurídico:** (ex: 'Após a pesquisa, intimar o exequente para requerer a instauração de IDPJ', 'conclusão para decisão sobre o redirecionamento', 'aplicar o instituto da fraude à execução'). Não inclua avisos sobre não ser conselho legal.`;
+        const analysis = await callGeminiAPI(prompt);
+        analysisResultContainer.innerHTML = `<div class="bg-stone-50 border border-stone-200 p-6 rounded-lg prose-custom">${analysis.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong class="text-stone-800">$1</strong>')}</div>`;
+    });
+
+    modalCloseBtn.addEventListener('click', () => modal.classList.add('hidden'));
+});
+</script>
+
+</body>
+</html>
